@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>GoldEngine v0.4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+<header id="toolbar">
+  <div class="logo">GoldEngine</div>
+  <button data-action="play">Play</button>
+  <button data-action="editor">Map Editor</button>
+  <select id="lang-select">
+    <option value="ru">Рус</option>
+    <option value="en">Eng</option>
+  </select>
+</header>
+
+<!-- ОСНОВНАЯ ОБЛАСТЬ -->
+<main id="main-layout">
+  <aside id="left-panel">
+    <div class="panel-header">Сцены</div>
+    <div id="scene-list"></div>
+    <button id="add-scene-btn" class="add-btn">+ Добавить сцену</button>
+  </aside>
+
+  <div id="canvas-area">
+    <div id="buy-menu-overlay">
+      <div class="buy-header">
+        <span>SELECT WEAPON MENU</span>
+        <span>Buy Time Left: <span id="buy-timer">45</span></span>
+      </div>
+      <div class="buy-radial-menu" id="buy-radial"></div>
+      <div class="buy-stats-panel" id="buy-stats">
+        <h2>Select weapon</h2>
+      </div>
+    </div>
+    <canvas id="canvas" width="960" height="600"></canvas>
+  </div>
+
+  <aside id="inspector">
+    <div id="inspector-content">
+      <p style="color:#888; text-align:center; margin-top:50px;">Выберите объект или инструмент</p>
+    </div>
+  </aside>
+</main>
+
+<!-- НИЖНЯЯ ПАНЕЛЬ: ПРЕФАБЫ -->
+<footer id="prefabs-bar">
+  <div class="prefab-tabs">
+    <button class="tab-btn active" data-tab="weapons">Оружие</button>
+    <button class="tab-btn" data-tab="npcs">NPC</button>
+    <button class="tab-btn" data-tab="decisions">Решения</button>
+    <button class="tab-btn" data-tab="tiles">Тайлы</button>
+  </div>
+  <div id="prefab-content" class="prefab-content"></div>
+</footer>
+
+<div id="modal-root"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/socket.io-client@4/dist/socket.io.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
